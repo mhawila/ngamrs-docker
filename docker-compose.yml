@@ -1,0 +1,14 @@
+data:
+  image: data
+mysqldb:
+  image: mysql:5.6
+  volumes_from:
+    - data
+openmrsweb:
+  image: tomcat-openmrs197
+  ports:
+   - "8888:8080"
+  links:
+   - mysqldb:openmrsdb
+  container_name: openmrs-webapp
+  hostname: ampath
