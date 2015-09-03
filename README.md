@@ -6,13 +6,19 @@ To run ng-amrs all images should be built and containers studed.
 **To build images follow steps below**
 
 1. Data volume: change to data directory and run
+```bash
 $ docker build -t data .
+```
 
 2. Tomcat image: change to tomcat directory and run
-`$ docker build -t openmrs-cors .``
+```bash
+$ docker build -t openmrs-cors .``
+```
 
 3. ng-amrs app: change to app and run
-`$ docker run -t ng-amrs-app .`
+```bash
+$ docker run -t ng-amrs-app .
+```
 
 *To run without using docker-composer. Starting containers in the following
 sequence linking them together.*
@@ -24,7 +30,9 @@ $ docker run --name mysql -p 3350:3306 -e MYSQL_ROOT_PASSWORD=root \
  ```
 
 2. Run tomcat instance linking to mysql database
-`$ docker run -d -p 8888:8080 --link mysql:mysql --name webapp openmrs-cors`
+```bash
+$ docker run -d -p 8888:8080 --link mysql:mysql --name webapp openmrs-cors
+```
 
 3. Run apache container with link to openmrs web app container
 ```bash
